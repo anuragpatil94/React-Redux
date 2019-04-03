@@ -4,15 +4,17 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from "./component.seasonDisplay";
 import LoadingSpinner from "./component.loadingSpinner";
 
-// Functional Based
-// const App = () => {
-//   window.navigator.geolocation.getCurrentPosition(
-//     position => console.log(position),
-//     err => console.log(err)
-//   );
+/*
+Functional Based
+const App = () => {
+  window.navigator.geolocation.getCurrentPosition(
+    position => console.log(position),
+    err => console.log(err)
+  );
 
-//   return <div>Latitude: </div>;
-// };
+  return <div>Latitude: </div>;
+};
+*/
 
 // Class Based
 class App extends React.Component {
@@ -28,12 +30,7 @@ class App extends React.Component {
   // THIS IS THE ONLY TIME WE DIRECTLY ASSIGN TO this.state
   state = { lat: null, errorMessage: "" };
 
-  componentWillMount() {
-    console.log("Component Will Mount");
-  }
-
   componentDidMount() {
-    console.log("Component Did Mount");
     //   Async Process
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude }),
@@ -41,7 +38,7 @@ class App extends React.Component {
     );
   }
 
-  // A helper function to avoid conditions in the render funtion
+  // A helper function to avoid conditions in the render function
   renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
