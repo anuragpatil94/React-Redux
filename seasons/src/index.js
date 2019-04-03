@@ -41,12 +41,8 @@ class App extends React.Component {
     );
   }
 
-  // Requirement for React
-  // At first the state object will display null but as soon as the state is
-  // updated the Component is automatically re-rendered.
-  render() {
-    console.log("Render");
-
+  // A helper function to avoid conditions in the render funtion
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -61,6 +57,13 @@ class App extends React.Component {
         data={{ message: "Please accept the location request!" }}
       />
     );
+  }
+
+  // Requirement for React
+  // At first the state object will display null but as soon as the state is
+  // updated the Component is automatically re-rendered.
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
