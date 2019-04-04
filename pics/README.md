@@ -7,6 +7,10 @@
 - App Structure - (i.e. Folders, organization)
 - Component Design
 - Handling User Requests
+  - Uncontrolled form element
+  - Controlled form element
+    - A flow of steps to set the value of the tags and the state of the react component
+    - Making sure that React drives all the data shown in the HTML.
 - CSS
 - Fetch Data from external API
 
@@ -21,4 +25,3 @@
 - App
 - SearchBar
 - ImageList
-
