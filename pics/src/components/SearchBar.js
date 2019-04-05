@@ -13,7 +13,9 @@ class SearchBar extends React.Component {
   // Arrow function automatically binds all the value of 'this' for all the code inside the function
   onFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.term);
+    // Here onSubmit is a props passed by App Component. 
+    // onSubmit function is invoked  when we pass the state of the SearchBar when the data is changed. 
+    this.props.onSubmit(this.state.term);
   };
 
   render() {
