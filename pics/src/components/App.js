@@ -1,18 +1,14 @@
 import React from "react";
-import axios from "axios";
 
 import SearchBar from "./SearchBar";
+import unsplash from "../api/unsplash";
 
 class App extends React.Component {
   state = { images: [] };
   // This function gets the change in state from child class to app class
   onSearchSubmit = async term => {
-    const response = await axios.get("https://api.unsplash.com/search/photos", {
-      params: { query: term },
-      headers: {
-        Authorization:
-          "Client-ID ee4e75a842cf172bdbd0e98e736755a0ff1afec1c5578f5870fd54d0c6491afc"
-      }
+    const response = await unsplash.get("/search/photos", {
+      params: { query: term }
     });
 
     this.setState({ images: response.data.results });
