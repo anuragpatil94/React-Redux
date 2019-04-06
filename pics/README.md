@@ -17,7 +17,7 @@
 ## App Challenges
 
 - Get Search Term from User
-- Make API Request
+- Make API Request - axios and Unsplash
 - Fetch Images and Show on Screen
 
 ### Component Design

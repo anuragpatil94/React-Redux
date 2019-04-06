@@ -1,0 +1,15 @@
+.image-list {
+  display: grid;
+
+  /* Creates a set of columns - 
+  (auto-fill automatically decides how many columns to fit in a row, 
+    minmax - 250px - Each of the column will be minimum 250px wide and 
+                1 fr  - max allocation of space ie. every column we create it should all be equally sized. 
+  */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px; /* Gap between grids */
+}
+
+.image-list img {
+  width: 250px;
+}
