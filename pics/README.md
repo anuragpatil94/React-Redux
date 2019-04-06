@@ -25,3 +25,13 @@
 - App
 - SearchBar
 - ImageList
+
+### Concepts
+
+- Event Handling
+- Binding 'this' using arrow function
+- Props Communicates Top - Down Component
+- Render List using Array Map
+- Render Images from Unsplash
+- React Ref system - access a DOM property of a element and connect the ref to that element
+- Grid CSS System
