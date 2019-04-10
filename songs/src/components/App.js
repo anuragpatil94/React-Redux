@@ -1,10 +1,22 @@
 import React from "react";
 
-// import { selectSong } from "../actions"; //Only if it is a Named Export
+import SongsList from "./SongsList";
+import SongDetail from "./SongDetail";
 
 class App extends React.Component {
   render() {
-    return <div />;
+    return (
+      <div className="ui container grid">
+        <div className="ui row">
+          <div className="column eight wide">
+            <SongsList />
+          </div>
+          <div className="column eight wide">
+            <SongDetail />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
