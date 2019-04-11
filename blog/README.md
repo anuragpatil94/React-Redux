@@ -15,6 +15,19 @@ A simple blog post application to understand Redux
 - redux-thunk - Middleware to make requests in a redux application
 - axios - better than fetch
 
+## Fetch Data in Redux
+
+### Flow
+
+- Render a Component
+- ComponentDidMount lifecycle method must be called
+- Call Action Creator from ComponentDidMount
+- Action Creator runs code to make an API Request
+- API responds the data
+- Action creator  returns action with fetched data on payload property
+- reducer sees the action adn return the data off the payload
+- New State Generated - React app rerendered
+
 ---
 
 
