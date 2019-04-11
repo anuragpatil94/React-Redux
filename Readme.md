@@ -7,3 +7,5 @@
 3. seasons
 4. pics
 5. YoutubeSearchAndPlay
+6. songs
+7. blog
