@@ -37,6 +37,8 @@ export const fetchUser = id => {
 
 export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   await dispatch(fetchPosts());
+
+  /* 
   const userIds = _.uniq(_.map(getState().posts, "userId"));
 
   // Not required to await because we don't care when the users are fetched
@@ -44,7 +46,20 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   userIds.forEach(userId => {
     dispatch(fetchUser(userId));
   });
+   */
 
   // async-await do not work with foreach. Hence if ever want
   // to use async await, we can use map instead of foreach
+
+  // USE OF LODASH
+  // Chain many function.
+  // Behind the scenes the first argument to map function
+  // will be the what we passed in the chain.
+  // Then the result of the map will be passed to next chain
+  // THIS IS SAME AS ABOVE COMMENTED SYNTAX
+  _.chain(getState().posts)
+    .map("userId")
+    .uniq()
+    .forEach(userId => dispatch(fetchUser(userId)))
+    .value();
 };
