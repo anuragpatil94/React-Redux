@@ -32,6 +32,8 @@ A simple blog post application to understand Redux
 
 - Rules of Action Creators
 - Rules of Reducers
+- Lodash Memoized
+- Async Action Creator
 
 
 ---
