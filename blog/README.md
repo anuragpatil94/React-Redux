@@ -28,6 +28,12 @@ A simple blog post application to understand Redux
 - reducer sees the action adn return the data off the payload
 - New State Generated - React app rerendered
 
+### Topics
+
+- Rules of Action Creators
+- Rules of Reducers
+
+
 ---
 
 
