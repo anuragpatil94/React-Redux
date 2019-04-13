@@ -14,6 +14,7 @@ A simple blog post application to understand Redux
 - react-redux - Integration between React and Redux
 - redux-thunk - Middleware to make requests in a redux application
 - axios - better than fetch
+- Apply Middleware
 
 ## Fetch Data in Redux
 
