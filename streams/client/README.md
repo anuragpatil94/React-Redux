@@ -1,3 +1,12 @@
+# Client
+
+## Important Points
+
+1. <Link> cannot be used outside Router. Hence add it inside the <BrowserRouter>
+2. <Header> in out case will have to be added only once in the <App> Component so that we don't have to load it separately for each page.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
