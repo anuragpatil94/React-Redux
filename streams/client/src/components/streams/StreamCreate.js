@@ -7,6 +7,7 @@ class StreamCreate extends React.Component {
       <div className="field">
         <label>{formProps.label}</label>
         <input {...formProps.input} />
+        <div>{formProps.meta.error}</div>
       </div>
     );
   }
@@ -33,4 +34,18 @@ class StreamCreate extends React.Component {
   }
 }
 
-export default reduxForm({ form: "streamCreate" })(StreamCreate);
+const validate = formValues => {
+  // compare with Field "name" property. hence the preperty in errors should match "name" in Field
+  const errors = {};
+  if (!formValues.title) {
+    errors.title = "Title not Entered";
+  }
+  if (!formValues.description) {
+    errors.description = "Description not Entered";
+  }
+  return errors;
+};
+
+export default reduxForm({ form: "streamCreate", validate: validate })(
+  StreamCreate
+);
