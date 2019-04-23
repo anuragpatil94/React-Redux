@@ -1,5 +1,13 @@
 import streams from "../apis/streams";
-import { SIGN_IN, SIGN_OUT, CREATE_STREAM } from "./types";
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  CREATE_STREAM,
+  FETCH_STREAMS,
+  FETCH_STREAM,
+  EDIT_STREAM,
+  DELETE_STREAM
+} from "./types";
 
 export const signIn = userId => {
   return {
@@ -26,4 +34,28 @@ export const createStream = formValues => {
     // This step is to store the create_steam data in the Redux Store or State
     dispatch({ type: CREATE_STREAM, payload: response.data });
   };
+};
+
+export const fetchStreams = () => {
+  return async dispatch => {
+    const response = await streams.get("./streams");
+    dispatch({ type: FETCH_STREAMS, payload: response.data });
+  };
+};
+
+export const fetchStream = streamId => {
+  return async dispatch => {
+    const response = await streamId.get(`./streams/${streamId}`);
+    dispatch({ type: FETCH_STREAM, payload: response.data });
+  };
+};
+
+export const editStream = (streamId, formValues) => async dispatch => {
+  const response = await streams.put(`/streams/${streamId}`, formValues);
+  dispatch({ type: EDIT_STREAM, payload: response.data });
+};
+
+export const deleteStream = streamId => async dispatch => {
+  await streams.delete(`/streams/${streamId}`);
+  dispatch({ type: DELETE_STREAM, payload: streamId });
 };
