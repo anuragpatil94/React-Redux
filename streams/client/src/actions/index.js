@@ -27,9 +27,10 @@ export const signOut = () => {
  * @param {object} formValues - Contains form values for creating stream
  */
 export const createStream = formValues => {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const { userId } = getState().auth;
     // response from axios
-    const response = await streams.post("./streams", formValues);
+    const response = await streams.post("./streams", { ...formValues, userId });
 
     // This step is to store the create_steam data in the Redux Store or State
     dispatch({ type: CREATE_STREAM, payload: response.data });
