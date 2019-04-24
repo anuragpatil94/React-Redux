@@ -1,4 +1,5 @@
 import streams from "../apis/streams";
+import history from "../history";
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -34,6 +35,9 @@ export const createStream = formValues => {
 
     // This step is to store the create_steam data in the Redux Store or State
     dispatch({ type: CREATE_STREAM, payload: response.data });
+
+    // Programmatic Handling of Routes, Manually
+    history.push("/");
   };
 };
 
