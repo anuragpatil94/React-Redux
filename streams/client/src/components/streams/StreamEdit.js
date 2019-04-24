@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
-import { fetchStream } from "../../actions";
+import { fetchStream, editStream } from "../../actions";
+import StreamForm from "./StreamForm";
 
 class StreamEdit extends React.Component {
   componentDidMount() {
@@ -11,8 +13,26 @@ class StreamEdit extends React.Component {
     this.props.fetchStream(this.props.match.params.id);
   }
 
+  onSubmit = formValues => {
+    this.props.editStream(this.props.match.params.id, formValues);
+  };
+
   render() {
-    return <div>Edit</div>;
+    if (!this.props.stream) {
+      return <div>Loading...</div>;
+    }
+    console.log(this.props);
+    // initialValues here is a key prop which is triggered by ReduxForm and which make sure that the fields in the form
+    // will have some initial values. The key in the object should match the `name` field in the <Field/>
+    return (
+      <div>
+        <h3>Edit a Stream</h3>
+        <StreamForm
+          onSubmit={this.onSubmit}
+          initialValues={_.pick(this.props.stream, "title", "description")}
+        />
+      </div>
+    );
   }
 }
 
@@ -22,5 +42,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { fetchStream }
+  { fetchStream, editStream }
 )(StreamEdit);

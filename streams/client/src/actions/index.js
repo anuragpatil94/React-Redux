@@ -56,8 +56,11 @@ export const fetchStream = streamId => {
 };
 
 export const editStream = (streamId, formValues) => async dispatch => {
-  const response = await streams.put(`/streams/${streamId}`, formValues);
+  const response = await streams.patch(`/streams/${streamId}`, formValues);
   dispatch({ type: EDIT_STREAM, payload: response.data });
+
+  // Programmatic Handling of Routes, Manually
+  history.push("/");
 };
 
 export const deleteStream = streamId => async dispatch => {
