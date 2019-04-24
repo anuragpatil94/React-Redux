@@ -50,7 +50,7 @@ export const fetchStreams = () => {
 
 export const fetchStream = streamId => {
   return async dispatch => {
-    const response = await streamId.get(`./streams/${streamId}`);
+    const response = await streams.get(`./streams/${streamId}`);
     dispatch({ type: FETCH_STREAM, payload: response.data });
   };
 };
