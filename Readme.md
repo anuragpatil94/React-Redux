@@ -9,3 +9,4 @@
 5. YoutubeSearchAndPlay
 6. songs
 7. blog
+8. Streams
