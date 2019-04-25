@@ -5,7 +5,54 @@
 1. <Link> cannot be used outside Router. Hence add it inside the <BrowserRouter>
 2. <Header> in out case will have to be added only once in the <App> Component so that we don't have to load it separately for each page.
 
+## Modal Without Route
 
+```javascript
+     import React from 'react';
+     import ReactDOM from 'react-dom';
+     
+     class Modal extends React.Component {
+     state = { open: false };
+     
+     onDismiss() {
+         this.setState({ open: false });
+         this.props.onDismiss();
+     }
+     
+     renderModal() {
+         if (!this.state.open) {
+         return null;
+         }
+     
+         return ReactDOM.createPortal(
+         <div onClick={this.onDismiss} className="ui dimmer modals visible active">
+             <div
+             onClick={e => e.stopPropagation()}
+             className="ui standard modal visible active"
+             >
+             <div className="header">{this.props.title}</div>
+             <div className="content">{this.props.content}</div>
+             <div className="actions">{this.props.actions}</div>
+             </div>
+         </div>,
+         document.querySelector('#modal')
+         );
+     }
+     
+     render() {
+         return (
+         <div>
+             <button onClick={() => this.setState({ open: true })}>
+             Open Modal
+             </button>
+             {this.renderModal()}
+         </div>
+         );
+     }
+     }
+     
+     export default Modal;
+ ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
